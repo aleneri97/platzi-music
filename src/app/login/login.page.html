@@ -2,4 +2,28 @@
   <figure class="ion-text-center ion-padding">
     <img src="assets/img/logo.png" alt="Logo Platzi Music">
   </figure>
+  <form [formGroup]="loginForm">
+    <ion-item>
+      <ion-label>Email</ion-label>
+      <ion-input type="email" formControlName="email"></ion-input>
+    </ion-item>
+    <div class="error-validation">
+      <ng-container *ngFor="let validation of validationMessages.email">
+        <div *ngIf="loginForm.get('email').hasError(validation.type) && (loginForm.get('email').dirty || loginForm.get('email').touched)" class="">
+          {{ validation.message }}
+        </div>
+      </ng-container>
+    </div>
+    <ion-item>
+      <ion-label>Password</ion-label>
+      <ion-input type="password" formControlName="password"></ion-input>
+    </ion-item>
+    <div class="error-validation">
+      <ng-container *ngFor="let validation of validationMessages.password">
+        <div *ngIf="loginForm.get('password').hasError(validation.type) && (loginForm.get('password').dirty || loginForm.get('password').touched)" class="">
+          {{ validation.message }}
+        </div>
+      </ng-container>
+    </div>
+  </form>
 </ion-content>
