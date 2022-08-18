@@ -32,7 +32,7 @@ export class LoginPage implements OnInit {
   ngOnInit() {
   }
 
-  logUser(credentials: Event) {
+  logUser(credentials: { email: string; password: string}) {
     this.authService.logUser(credentials)
     .then(res => {
       this.errorMessage = '';
@@ -41,7 +41,6 @@ export class LoginPage implements OnInit {
     .catch(err => {
       this.errorMessage = err;
     });
-    console.log(credentials);
   }
 
 }
