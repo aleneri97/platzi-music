@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthenticateService } from '../services/authenticate.service';
 
 @Component({
   selector: 'app-login',
@@ -7,6 +9,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
+  errorMessage = '';
   loginForm: FormGroup;
   validationMessages = {
     email: [
@@ -19,7 +22,7 @@ export class LoginPage implements OnInit {
     ],
   };
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private authService: AuthenticateService, private router: Router) {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(5)]],
@@ -30,6 +33,10 @@ export class LoginPage implements OnInit {
   }
 
   logUser(credentials: Event) {
+    this.authService.logUser(credentials).then(res => {
+      this.errorMessage = '';
+      this.router.navigateByUrl('/home');
+    });
     console.log(credentials);
   }
 
