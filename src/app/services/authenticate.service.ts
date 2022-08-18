@@ -5,19 +5,27 @@ import { Storage } from '@ionic/storage-angular';
   providedIn: 'root'
 })
 export class AuthenticateService {
+  userData;
 
   constructor(private storage: Storage) {
     this.storage.create();
   }
 
-  logUser(credentials: { email: string; password: string }) {
+  async logUser(credentials: { email: string; password: string }) {
+    this.userData = await this.storage.get('user');
     return new Promise((resolve, reject) => {
-      if (credentials.email === 'test@test.com' && credentials.password === '12345') {
-        this.storage.set('isLogged', true);
-        return resolve('Login Correcto');
+      credentials.password = btoa(credentials.password);
+      if (credentials.email === this.userData.email && credentials.password === this.userData.password) {
+        resolve('Login correcto');
       } else {
-        return reject('Login Incorrecto');
+        reject('Login incorrecto');
       }
     });
   }
+
+  registerUser(userData) {
+    userData.password = btoa(userData.password);
+    return this.storage.set('user', userData);
+  }
+
 }

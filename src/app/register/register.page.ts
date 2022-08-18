@@ -40,15 +40,14 @@ export class RegisterPage implements OnInit {
   ngOnInit() {
   }
 
-  registerUser(credentials: { name: string; lastname: string; email: string; password: string }) {
-    // this.authService.logUser(credentials)
-    //   .then(res => {
-    //     this.errorMessage = '';
-    //     this.router.navigateByUrl('/home');
-    //   })
-    //   .catch(err => {
-    //     this.errorMessage = err;
-    //   });
+  registerUser(userData: { name: string; lastname: string; email: string; password: string }) {
+    this.authService.registerUser(userData).then(res => {
+      this.goToLogin();
+    });
+  }
+
+  goToLogin() {
+    this.router.navigate(['/login'], { skipLocationChange: true });
   }
 
 }
