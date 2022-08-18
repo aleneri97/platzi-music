@@ -1,0 +1,30 @@
+<ion-split-pane contentId="menu-content">
+  <!-- Menu -->
+  <ion-menu contentId="menu-content" menuId="menu-content" side="end">
+    <!-- Header -->
+    <ion-header>
+      <!-- Toolbar -->
+      <ion-toolbar>
+        <!-- Menu -->
+        <ion-title>Menú</ion-title>
+        <!-- Close Menu Button -->
+        <ion-button icon-only (click)="closeMenu()">
+          <ion-icon name="close" size="large"></ion-icon>
+        </ion-button>
+      </ion-toolbar>
+    </ion-header>
+    <!-- Menu Content -->
+    <ion-content>
+      <ion-list>
+        <ion-item>
+          <ion-label>Menu</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>Settings</ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+  <!-- Content -->
+  <ion-router-outlet id="menu-content" main></ion-router-outlet>
+</ion-split-pane>
