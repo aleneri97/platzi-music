@@ -29,4 +29,8 @@ export class LoginPage implements OnInit {
   ngOnInit() {
   }
 
+  logUser(credentials: Event) {
+    console.log(credentials);
+  }
+
 }

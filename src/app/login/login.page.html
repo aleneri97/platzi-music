@@ -2,7 +2,7 @@
   <figure class="ion-text-center ion-padding">
     <img src="assets/img/logo.png" alt="Logo Platzi Music">
   </figure>
-  <form [formGroup]="loginForm">
+  <form [formGroup]="loginForm" (ngSubmit)="logUser(loginForm.value)">
     <ion-item>
       <ion-label>Email</ion-label>
       <ion-input type="email" formControlName="email"></ion-input>
@@ -25,5 +25,13 @@
         </div>
       </ng-container>
     </div>
+    <ion-button color="success" expand="full" shape="round" [disabled]="loginForm.invalid" type="submit">
+      Inicia Sesión
+    </ion-button>
   </form>
 </ion-content>
+<ion-footer class="ion-text-center">
+    <ion-button color="success" expand="full" fill="outline" shape="round">
+      Regístrate
+    </ion-button>
+</ion-footer>
