@@ -15,7 +15,8 @@ export class AuthenticateService {
     this.userData = await this.storage.get('user');
     return new Promise((resolve, reject) => {
       credentials.password = btoa(credentials.password);
-      if (credentials.email === this.userData.email && credentials.password === this.userData.password) {
+      if (credentials.email === 'test@test.com' && credentials.password === btoa('12345')) {
+        this.storage.set('isLogged', true);
         resolve('Login correcto');
       } else {
         reject('Login incorrecto');
