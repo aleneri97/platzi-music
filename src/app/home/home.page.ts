@@ -20,6 +20,7 @@ export class HomePage  {
   artists: any = [{}, {}, {}, {}, {}, {}, {}, {}];
   songs: any = [{}, {}, {}, {}, {}, {}, {}, {}];
   albums: any = [{}, {}, {}, {}, {}, {}, {}, {}];
+  song: any = {};
 
   constructor(private musicService: PlatziMusicService, private modalController: ModalController) {
   }
@@ -43,6 +44,11 @@ export class HomePage  {
           artist: artist.name
         }
       });
+
+      modal.onDidDismiss().then(returnedData => {
+        this.song = returnedData.data;
+      });
+
       return await modal.present();
     });
   }
