@@ -19,4 +19,9 @@ export class PlatziMusicService {
   getNewReleases() {
     return this.http.get<{ albums: any }>(`${URL}/browse/new-releases`);
   }
+
+  getArtistTopTracks(artistId) {
+    return this.http.get<any>(`${URL}/artists/${artistId}/top-tracks?country=CO`);
+  }
+
 }

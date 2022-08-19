@@ -11,13 +11,13 @@
   <h1>Artistas</h1>
   <ion-slides *ngIf="artists.length" [options]="slideOps">
     <ion-slide *ngFor="let artist of artists">
-      <ion-avatar>
+      <ion-avatar (click)="showSongs(artist)">
         <img [src]="artist.images ? artist.images[0]?.url : ''" />
         <span>{{artist.name}}</span>
       </ion-avatar>
     </ion-slide>
   </ion-slides>
-  <h1>Álbums</h1>
+  <h1>Álbumes</h1>
   <ion-slides *ngIf="albums.length" [options]="slideOps">
     <ion-slide *ngFor="let album of albums">
       <ion-avatar class="square-avatar">
