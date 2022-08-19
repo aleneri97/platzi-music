@@ -24,7 +24,8 @@ export class HomePage  {
 
   ionViewDidEnter() {
     this.musicService.getNewReleases().subscribe(releases => {
-      this.artists = releases.albums.items;
+      this.artists = this.musicService.getArtists().items;
+      console.log(this.artists);
       this.songs = releases.albums.items.filter(e => e.album_type === 'single');
       this.albums = releases.albums.items.filter(e => e.album_type === 'album');
     });
