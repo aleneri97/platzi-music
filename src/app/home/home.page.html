@@ -8,30 +8,21 @@
 </ion-header>
 
 <ion-content>
-  <h1>Artistas</h1>
-  <ion-slides *ngIf="artists.length" [options]="slideOps">
-    <ion-slide *ngFor="let artist of artists">
+  <h1>Álbums</h1>
+  <ion-slides *ngIf="albums.length" [options]="slideOps">
+    <ion-slide *ngFor="let album of albums">
       <ion-avatar>
-        <img src="http://picsum.photos/150" />
-        <span>Artista</span>
+        <img [src]="album.images ? album.images[0]?.url : ''" />
+        <span>{{album.name}}</span>
       </ion-avatar>
     </ion-slide>
   </ion-slides>
-  <h1>Álbumes</h1>
-  <ion-slides *ngIf="artists.length" [options]="slideOps">
-    <ion-slide *ngFor="let artist of artists">
+  <h1>Canciones</h1>
+  <ion-slides *ngIf="songs.length" [options]="slideOps">
+    <ion-slide *ngFor="let song of songs">
       <ion-avatar>
-        <img src="http://picsum.photos/150" />
-        <span>Artista</span>
-      </ion-avatar>
-    </ion-slide>
-  </ion-slides>
-  <h1>Recomendaciones</h1>
-  <ion-slides *ngIf="artists.length" [options]="slideOps">
-    <ion-slide *ngFor="let artist of artists">
-      <ion-avatar>
-        <img src="http://picsum.photos/150" />
-        <span>Artista</span>
+        <img [src]="song.images ? song.images[0].url : ''" />
+        <span>{{song.name}}</span>
       </ion-avatar>
     </ion-slide>
   </ion-slides>
