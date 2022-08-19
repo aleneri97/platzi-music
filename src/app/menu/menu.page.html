@@ -8,7 +8,7 @@
         <!-- Menu -->
         <ion-title>Menú</ion-title>
         <!-- Close Menu Button -->
-        <ion-button icon-only (click)="closeMenu()">
+        <ion-button (click)="closeMenu()">
           <ion-icon name="close" size="large"></ion-icon>
         </ion-button>
       </ion-toolbar>
@@ -17,10 +17,17 @@
     <ion-content>
       <ion-list>
         <ion-item>
-          <ion-label>Menu</ion-label>
+          <ion-label>Home</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>Sport Mode</ion-label>
         </ion-item>
         <ion-item>
           <ion-label>Settings</ion-label>
+        </ion-item>
+        <ion-item (click)="logout()">
+          <ion-icon slot="start" name="log-out" color="primary"></ion-icon>
+          <ion-label>Log Out</ion-label>
         </ion-item>
       </ion-list>
     </ion-content>
