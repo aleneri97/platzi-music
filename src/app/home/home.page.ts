@@ -53,4 +53,12 @@ export class HomePage  {
     });
   }
 
+  play() {
+    this.song.playing = true;
+  }
+
+  pause() {
+    this.song.playing = false;
+  }
+
 }
