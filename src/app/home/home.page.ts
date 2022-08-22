@@ -21,6 +21,8 @@ export class HomePage  {
   songs: any = [{}, {}, {}, {}, {}, {}, {}, {}];
   albums: any = [{}, {}, {}, {}, {}, {}, {}, {}];
   song: any = {};
+  currentSong: HTMLAudioElement;
+  newTime = 0;
 
   constructor(private musicService: PlatziMusicService, private modalController: ModalController) {
   }
@@ -47,17 +49,29 @@ export class HomePage  {
 
       modal.onDidDismiss().then(returnedData => {
         this.song = returnedData.data;
+        this.startPlay();
       });
 
       return await modal.present();
     });
   }
 
+  startPlay() {
+    if (this.currentSong) {this.currentSong.pause();}
+    this.currentSong = new Audio(this.song.preview_url);
+    this.play();
+  }
+
   play() {
+    this.currentSong.play();
+    this.currentSong.addEventListener('timeupdate', () => {
+      this.newTime = (this.currentSong.currentTime / this.currentSong.duration);
+    });
     this.song.playing = true;
   }
 
   pause() {
+    this.currentSong.pause();
     this.song.playing = false;
   }
 

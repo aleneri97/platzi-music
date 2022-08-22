@@ -39,11 +39,11 @@
 <ion-footer>
   <ion-grid fixed>
     <ion-row>
-      <ion-col class="ion-text-start" size="6">0:00</ion-col>
-      <ion-col class="ion-text-end" size="6">0:00</ion-col>
+      <ion-col class="ion-text-start" size="6">{{!currentSong ? '00:00' : currentSong.currentTime * 1000 | date: 'mm:ss'}}</ion-col>
+      <ion-col class="ion-text-end" size="6">{{!currentSong ? '00:00' : currentSong.duration * 1000 | date: 'mm:ss'}}</ion-col>
     </ion-row>
   </ion-grid>
-  <ion-progress-bar type="determinate" value="0.42" color="primary"></ion-progress-bar>
+  <ion-progress-bar type="determinate" [value]="newTime" color="primary"></ion-progress-bar>
   <ion-grid fixed>
     <ion-row>
       <ion-col size="1">
