@@ -24,4 +24,9 @@ export class MenuPage implements OnInit {
     this.router.navigateByUrl('/login');
   }
 
+  goTo(url: string) {
+    this.router.navigateByUrl(url);
+    this.menuController.close();
+  }
+
 }

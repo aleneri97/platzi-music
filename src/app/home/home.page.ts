@@ -20,7 +20,13 @@ export class HomePage  {
   artists: any = [{}, {}, {}, {}, {}, {}, {}, {}];
   songs: any = [{}, {}, {}, {}, {}, {}, {}, {}];
   albums: any = [{}, {}, {}, {}, {}, {}, {}, {}];
-  song: any = {};
+  // eslint-disable-next-line @typescript-eslint/naming-convention
+  song: { preview_url: string; playing: boolean; name: string } = {
+    // eslint-disable-next-line @typescript-eslint/naming-convention
+    preview_url: '',
+    playing: false,
+    name: ''
+  };
   currentSong: HTMLAudioElement;
   newTime = 0;
 

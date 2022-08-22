@@ -36,7 +36,7 @@ export class LoginPage implements OnInit {
     this.authService.logUser(credentials)
     .then(res => {
       this.errorMessage = '';
-      this.router.navigateByUrl('/menu/home');
+      this.router.navigateByUrl('/menu');
     })
     .catch(err => {
       this.errorMessage = err;
