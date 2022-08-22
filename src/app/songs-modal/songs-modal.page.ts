@@ -21,4 +21,8 @@ export class SongsModalPage {
     await this.modalController.dismiss(song);
   }
 
+  async dismiss() {
+    await this.modalController.dismiss();
+  }
+
 }

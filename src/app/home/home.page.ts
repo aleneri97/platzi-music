@@ -14,7 +14,7 @@ export class HomePage  {
     slidesPerView: 4,
     slidesPerGroup: 4,
     grabCursor: true,
-    spaceBetween: 30,
+    spaceBetween: 20,
     speed: 400,
   };
   artists: any = [{}, {}, {}, {}, {}, {}, {}, {}];
@@ -48,8 +48,10 @@ export class HomePage  {
       });
 
       modal.onDidDismiss().then(returnedData => {
-        this.song = returnedData.data;
-        this.startPlay();
+        if (returnedData.data) {
+          this.song = returnedData.data;
+          this.startPlay();
+        }
       });
 
       return await modal.present();
