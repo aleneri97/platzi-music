@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { SportsPageRoutingModule } from './sports-routing.module';
 
 import { SportsPage } from './sports.page';
+import { GoogleMapsModule } from '@angular/google-maps';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    SportsPageRoutingModule
+    SportsPageRoutingModule,
+    GoogleMapsModule
   ],
   declarations: [SportsPage]
 })
