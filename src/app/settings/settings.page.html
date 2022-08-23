@@ -1,11 +1,30 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>settings</ion-title>
+      <ion-buttons slot="end">
+        <ion-menu-button menu="menu-content"></ion-menu-button>
+      </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <ion-avatar (click)="takePhoto()">
-    <img [src]="photo || usrImg" />
-  </ion-avatar>
+<ion-content class="ion-text-center">
+  <div class="success-background" padding>
+    <ion-avatar (click)="takePhoto()">
+      <img [src]="photo || usrImg" />
+    </ion-avatar>
+    <h1>Manuel Neri</h1>
+    <h2>ale_neri@yahoo.com</h2>
+    <ion-grid>
+      <ion-row class="ion-align-items-center ion-text-center row-header">
+        <ion-col size="4">140</ion-col>
+        <ion-col size="4">2k</ion-col>
+        <ion-col size="4">500</ion-col>
+      </ion-row>
+      <ion-row class="ion-align-items-center ion-text-center">
+        <ion-col size="4">Artistas</ion-col>
+        <ion-col size="4">Seguidores</ion-col>
+        <ion-col size="4">Canciones</ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
 </ion-content>
